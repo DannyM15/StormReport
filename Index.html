@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- We need to ensure the other styles are loaded before our stylesheet utilizes them -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/style.css" />
+  <title>Weather its Rain or Shine</title>
 </head>
-<body>
-    
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title">
+      <!-- The `<i>` element is for icons. These classes come from the Font Awesome font icon library. -->
+      <i></i> Weather its Rain or Shine!
+    </h1>
+    <p>Search for a location to see the weather</p>
+  </header>
+ 
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By city</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" for="username">City name</label>
+          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+          <button type="submit" onclick="saveSearch()" class="btn">Search</button>
+        </form>
+      </div>
+
+  </main>
+
+  <div class="col-12 col-md-8">
+    <h2 class="subtitle"> <span id="repo-search-term"></span></h2>
+    <div id="day-container" class="list-group"></div>
+    <p id="weather-1"></p>
+    <p id="wind-1"></p>
+    <p id="humidity-1"></p>
+  </div>
+
+  <div id="day-container" class="list-group"></div>
+  <p id="weather-2"></p>
+  <p id="wind-2"></p>
+  <p id="humidity-2"></p>
+  </div>
+
+  <div id="day-container" class="list-group"></div>
+  <p id="weather-3"></p>
+  <p id="wind-3"></p>
+  <p id="humidity-3"></p>
+  </div>
+
+  <div id="day-container" class="list-group"></div>
+  <p id="weather-4"></p> 
+  <p id="wind-4"></p>
+  <p id="humidity-4"></p>
+  </div>
+
+  <div id="day-container" class="list-group"></div>
+  <p id="weather-5"></p>
+  <p id="wind-5"></p>
+  <p id="humidity-5"></p>
+  </div>
+
+  </main>
+
+  <!--
+            <div class="card">
+              <h3 class="card-header text-uppercase">Recent Searches</h3>
+              <div id="language-buttons" class="card-body">
+                **** These data-attribute values will be used to search for repositories when a button is clicked.
+                <button class="btn">Search 1</button>
+                <button class="btn">Search 2</button>
+                <button class="btn">Search 3</button>
+              </div>
+            </div>
+          </div>  -->
+
+  <div class="col-12 col-md-8">
+    <h2 class="subtitle">Search History <span id="repo-search-term"></span></h2>
+    <!-- There needs to be an empty HTML element for us to write repository data to. -->
+    <div id="repos-container" class="list-group"></div>
+  </div>
+  </main>
+
+
+  <script src="./assets/script.js"></script>
 </body>
+
 </html>

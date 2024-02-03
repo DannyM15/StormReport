@@ -22,7 +22,6 @@ function clickbtn(event) {
         .then(weatherData => {
             console.log(weatherData)
 
-            // document.querySelector('#wind-5').textContent = weatherData.list[34].main.temp
         })
 }
 
@@ -30,9 +29,9 @@ var searchButton = document.querySelector(".btn")
 
 searchButton.addEventListener("click", clickbtn)
 
-function saveSearch () {
+function saveSearch() {
     var searchQuery = document.getElementById('#username');
-    if (typeof(Storage) !== "undefined") {
+    if (typeof (Storage) !== "undefined") {
         localStorage.setItem('lastSearch', searchQuery);
         console.log("Search query saved: " + searchQuery);
     } else {
@@ -40,42 +39,12 @@ function saveSearch () {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     var lastSearch = localStorage.getItem("lastSearch");
     if (lastSearch) {
-      document.getElementById("#username") = lastSearch;
-      console.log("Last search query retrieved: " + lastSearch);
+        document.getElementById("#username") = lastSearch;
+        console.log("Last search query retrieved: " + lastSearch);
     }
-  };
+};
 
 
-/*
-//saves intials entered and assigns to initials variable. trim deleted white space
-function saveSearch() {
-    var  = citynameInput.value.trim();
-    if (cityname !== "") {
-      // Saves the initials and score to local storage using getHighScores function. Stores and sorts the high scores in order 
-      var lastSearch = cityname();
-      lastSearch.push(city.value);
-      localStorage.setItem("lastSearch", JSON.stringify(highScores));
-      displaylastSearch();
-    }
-  }
-  
-  //stores high scores data from local storage as string
-  function lastSearch() {
-    var highScoresString = localStorage.getItem("highScores");
-    return highScoresString ? JSON.parse(highScoresString) : [];
-  }
-  
-  //saves high scores and deletes existing data. 
-  function displayHighScores() {
-    var highScores = getHighScores();
-    highScoresList.innerHTML = "";
-    //Iterate over the high score array and display each score as new list item
-    highScores.forEach((entry) => {
-      var li = document.createElement("li");
-      li.textContent = ${entry.initials}: ${entry.score};
-      highScoresList.appendChild(li);
-    });
-  } */

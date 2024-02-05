@@ -1,6 +1,5 @@
 var cityname = document.querySelector('#username')
 
-//var requestURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname}&appid=463d1cee038354c58ccc692c67d9b4d7`
 var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityname.value}&appid=463d1cee038354c58ccc692c67d9b4d7&units=imperial`
 
 
@@ -20,7 +19,6 @@ function clickbtn(event) {
             }
         })
 
-    event.preventDefault();
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname.value}&appid=463d1cee038354c58ccc692c67d9b4d7&units=imperial`)
         .then(res => res.json())
         .then(weatherData => {
@@ -51,7 +49,7 @@ function saveSearch() {
         localStorage.setItem('lastSearch', JSON.stringify(searchHistory));
         console.log("Search query saved: " + searchQuery.value);
     } else {
-        console.long("local storage is not supported by this browser.")
+        console.log("local storage is not supported by this browser.")
     }
 }
 
@@ -69,5 +67,29 @@ window.onload = function () {
     }
 };
 
+// Function to handle button clicks for recent searches
+function handleRecentSearch(event) {
+    event.preventDefault();
+    var cityName = event.target.innerText; // Get the city name from the button text
+    cityname.value = cityName;
+    fetchWeatherData(cityName); // Call a function to fetch weather data using the city name
+}
 
+// Add event listeners to all recent search buttons
+var recentSearchButtons = document.querySelectorAll("#repos-container button");
+recentSearchButtons.forEach(function(button) {
+    button.addEventListener("click", handleRecentSearch);
+});
+
+// Function to fetch weather data using the provided city name
+function fetchWeatherData(cityName) {
+    var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName.value}&appid=463d1cee038354c58ccc692c67d9b4d7&units=imperial`;
+    fetch(apiURL)
+        .then(res => res.json())
+        .then(weatherData => {
+            console.log(weatherData);
+            // Update the UI with the fetched weather data
+            // ...
+        });
+}
 

@@ -12,6 +12,7 @@ function clickbtn(event) {
             console.log(weatherData)
             var dayIndex = 2
             for (let i = 1; i < 6; i++) {
+                document.querySelector('#day-' + i).textContent = "Day " + [i]
                 document.querySelector('#wind-' + i).textContent = "Wind Spped: " + weatherData.list[dayIndex].wind.speed
                 document.querySelector('#weather-' + i).textContent = "Temperature: " + weatherData.list[dayIndex].main.temp
                 document.querySelector('#humidity-' + i).textContent = "Humidity: " + weatherData.list[dayIndex].main.humidity
@@ -85,6 +86,7 @@ function fetchWeatherData(cityName) {
             console.log(weatherData);
             var dayIndex = 2
             for (let i = 1; i < 6; i++) {
+                document.querySelector('#day-' + i).textContent = "Day " + [i]
                 document.querySelector('#wind-' + i).textContent = "Wind Spped: " + weatherData.list[dayIndex].wind.speed
                 document.querySelector('#weather-' + i).textContent = "Temperature: " + weatherData.list[dayIndex].main.temp
                 document.querySelector('#humidity-' + i).textContent = "Humidity: " + weatherData.list[dayIndex].main.humidity

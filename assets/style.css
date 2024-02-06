@@ -1,0 +1,42 @@
+.app-title {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: aquamarine;
+}
+
+.card {
+    display: box;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    height: 200px; /* Adjust height as needed */
+    border: 10px solid lightgrey; /* Thick light grey border */
+    background-color: lightgrey; /* Light grey background */
+    font-size: 1.5rem; /* Medium text size */
+}
+
+
+section {
+    background-color: azure;
+    display: felx;
+    flex-direction: row;
+    border-color: black;
+}
+
+#day-container {
+    border: 1px solid black;
+    border-color: blue;
+    display: felx;
+    flex-direction: row;
+    width: 20%;
+    padding: 5px;
+
+}
+
+.subtitle {
+    font-size: large;
+}

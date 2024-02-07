@@ -93,8 +93,7 @@ function fetchWeatherData(cityName) {
                 dayIndex += 8
             }
         })
-            // Update the UI with the fetched weather data
-            // ...
-        };
+
+};
 
 
